@@ -1,0 +1,174 @@
+* {
+    margin: 0; /*resetando a margem*/
+    padding: 0;/*resetando o preenchimento do site*/
+    box-sizing: border-box; /*considera sempre a largura declarada no width do main*/
+}
+
+ul {
+    list-style: none; /*tirando o estilo da lista, tirando os "." que aparecem quando declara a lista*/
+}
+
+body * {
+    font-family: 'Montserrat', sans-serif; /*aplicando a fonte declarada no index, caso não encontre irá usar o sans-serif. Sans-serif = tirando os traços dos cantos das letras para ficar arredondadas.*/
+    line-height: 160%; /*declarando a altura da linha*/
+} 
+
+body {
+    background: url(./assets/bg.jpg); /*colocando a imagem de fundo e o local de onde a imagem esta*/
+    background-position: top center; /*definindo a posição do fundo*/
+    background-size: 100% auto; /*aumenta e diminui a largura e altura automática*/
+    background-repeat: no-repeat; /*serve para não repetir a imagem de fundo*/
+    background-color: #121214; /*cor em hexadecimal para completar o restante do fundo*/
+}
+
+header {
+    padding-top: 32px; /*espaço acima da imagem*/
+    /*text-align: center; todo conteúdo identificado com propriedade de texto ele irá alinhar ao centro. (Imagem é identificado com propriedade de texto)*/
+    height: calc(120px + 32px); /*calculando a altura da imagem*/
+}
+
+header div {
+    width: 120px; /*definição do tamanho*/
+    margin: auto; /*prenchimento automatico da margem*/
+    background-image: linear-gradient(90deg, #C91842 0%, #5CC2E2 100%);/*aplica as cores nas bordas, começando em 90% como declarado*/
+
+    border-radius: 50%; /*arredondamento das bordas da caixa*/
+
+    display: flex; /*display: visualização das caixas no html. Flex: colocar os elementos um do lado do outro. Altera todos dentro da caixa*/
+    padding: 4px; /*preenchimento da caixa e colocando a borda ao redor*/
+
+    transition: transform .3s; /*transição da diminuição e aumento da imagem para ficar mais suave*/
+}
+
+header div:hover {
+    transform: scale(1.1); /*quando passar o mouse encima irá aumentar e diminuir a imagem*/
+}
+
+header div img {
+    width: 100%; /*definição do tamanho*/
+    border-radius: 50%; /*arredondamento das bordas da caixa*/
+}
+
+/*main * {
+    border: 1px solid red; OBS.: * é um seletor universal (pega tudo dentro do "main") aplica a ordem.
+}*/
+main {
+    max-width: 580px; /*largura maxima. Obs.: tudo dentro do "main" terá essa largura máxima*/
+    width: 90%; /*largura toda do site, deixando espaços do lado*/
+    margin: 32px auto; /*se tiver um valor primeiro, ele irá aplicar encima e depois o auto ele calcula as margens laterais para serem preenchidas automaticamente*/
+
+    display: grid; /*não alerar os elementos, deixam eles um embaixo do outro diferente do flex*/
+    gap: 24px; /*Gap: largura entre os elementos*/
+}
+
+section {
+    color: white; /*aplica a cor branca para todas as seções declaradas*/
+    background-image: linear-gradient(90deg, #C91842 0%, #5CC2E2 100%);/*aplica as cores nas bordas, começando em 90% como declarado*/
+    padding-top: 4px; /*preencher a quantidade desejada da borda*/
+    border-radius: 10px; /*arredondamento das bordas da caixa*/
+}
+
+section div {
+    background-color: #262629 ; /*cor que ficara na caixa*/
+    padding: 32px; /*tamanho da lateral da caixa*/
+    padding-top: 24px; /*tamanho do topo da caixa*/
+    border-radius: 8px; /*arredondamento das bordas da caixa*/
+}
+
+section h2 {
+    letter-spacing: -0.47px; /*espaço entre as letras*/
+}
+
+section p {
+    letter-spacing: -0.18px; /*espaço entre as letras*/
+    color: #c1c1c1 /*cor das letras*/
+}
+
+section ul {
+    display: flex ; /*display: visualização das caixas no html. Flex: colocar os elementos um do lado do outro. Altera todos dentro da caixa*/
+    flex-wrap: wrap; /*chegar no limite da caixa irá jogar os elementos para baixo em vez de ir aumentando para o lado*/
+    gap: 16px; /*Gap: largura entre os elementos*/
+
+    margin-top: 24px; /*largura da margem do topo das caixas*/
+}
+
+section ul li {
+    transition: transform .3s; /*transição da diminuição e aumento da imagem para ficar mais suave*/
+}
+
+section ul li:hover {
+    transform: scale(1.1); /*quando passar o mouse encima irá aumentar e diminuir a imagem*/
+}
+
+.films-list img {
+    width: 100px; /*largura da imagem*/
+    border-radius: 8px; /*colocando bordas nas imagens*/
+    border: 1px solid #443E54; /*borda ao redor da imagem*/
+}
+
+.series-list img {
+    width: 100px; /*largura da imagem*/
+    border-radius: 8px; /*colocando bordas nas imagens*/
+    border: 1px solid #443E54; /*borda ao redor da imagem*/
+}
+
+.animes-list img {
+    height: 150px; /*altura da imagem*/
+    width: 100px; /*largura da imagem*/
+    border-radius: 8px; /*colocando bordas nas imagens*/
+    border: 1px solid #443E54;/*borda ao redor da imagem*/
+}
+
+/* animation */
+
+header div {
+    animation: fromTop .7s .2s backwards; /*ativando a animação fromTop. Delay de .7s para começar e backwards puxando a animação abaixo*/
+    /*animation-delay: 1s; inicio da animação*/
+}
+
+main section {
+    animation: fromBottom .7s backwards; /*ativando a animação froBottom. Delay de .7s para começar e backwards puxando a animação abaixo*/
+}
+
+main section:nth-child(1) {
+    animation-delay: 0; /*delay do começo*/
+}
+
+main section:nth-child(2) {
+    animation-delay: .3s; /*delay da caixa do meio*/
+}
+
+main section:nth-child(3) {
+    animation-delay: .6s; /*delay da penultima caixa*/
+}
+
+main section:nth-child(4) {
+    animation-delay: .9s; /*delay da penultima caixa*/
+}
+
+/* criação das animações @keyframes*/
+
+@keyframes fromTop {
+    from {
+        opacity: 0; /*não irá ver o elemento*/
+        transform: translateY(-30px);/*irá começar a mover de -30px e terminar na de baixo no 0*/
+    }
+
+    to {
+        opacity: 1; /*irá ver o elemento por completo*/
+        transform: translateY(0); /*irá mover o elemento de cima pra baixo*/
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0; /*não irá ver o elemento*/
+        transform: translateY(30px);/*irá começar a mover de -30px e terminar na de baixo no 0*/
+    }
+
+    to {
+        opacity: 1; /*irá ver o elemento por completo*/
+        transform: translateY(0); /*irá mover o elemento de cima pra baixo*/
+    }
+    
+}
